@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+
+<mapper namespace="MainMapper">
+	<select id="selectName" resultType="string">
+		SELECT NOW()
+	</select>
+	
+	<select id="findId" resultType="string">
+		SELECT user_id
+		  FROM key_mvp.user_info
+	   WHERE user_id = #{userId}
+	</select>
+	
+	<select id="findIdPw" resultType="HashMap">
+		SELECT user_id
+		          , user_pw
+		  FROM key_mvp.user_info
+	   WHERE user_id = #{userId}
+	</select>
+	
+	<insert id="insertUser"> 
+        INSERT INTO key_mvp.user_info
+        	(
+        		seq
+        		, user_uid
+        		, user_id
+        		, user_pw
+        		, user_name
+        		, company
+        		, depart
+        		, position
+        		, cellphone
+        		, email
+        		, address
+        		, address_detail
+        		, zipcode
+        		, auth_method
+        		, simple_login
+        		, regDatetime
+        		, reg_ip
+        		, use_yn
+        	) select case count(*) when 0 then 1 else max(seq) + 1 end
+        		, #{userUid}
+        		, #{userId}
+        		, #{userPw}
+        		, #{userName}
+        		, ' '
+        		, ' '
+        		, ' '
+        		, ' '
+        		, ' '
+        		, ' '
+        		, ' '
+        		, ' '
+        		, ' '
+        		, ' '
+        		, NOW()
+        		, #{regIp}
+        		, 'Y'
+        		from key_mvp.user_info
+    </insert>
+</mapper>
