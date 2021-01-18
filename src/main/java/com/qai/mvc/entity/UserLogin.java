@@ -14,4 +14,6 @@ public class UserLogin {
 	private String user_id;
 	
 	private String user_pw;
+	
+	private String[] log_text;
 }

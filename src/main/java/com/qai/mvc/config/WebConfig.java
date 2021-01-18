@@ -13,8 +13,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	/*
      * 로그인 인증 Interceptor 설정
      * */
-    @Autowired
-    CertificationInterceptor certificationInterceptor;
+//    @Autowired
+//    CertificationInterceptor certificationInterceptor;
     
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

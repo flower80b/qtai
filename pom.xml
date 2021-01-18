@@ -78,10 +78,10 @@
 		</dependency>
 		
 		<!-- 비밀번호암호화 -->
-		<dependency>
+		<!-- <dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
+		</dependency> -->
 		
 	</dependencies>
 

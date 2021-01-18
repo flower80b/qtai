@@ -1,5 +1,456 @@
-2021-01-15 08:56:25,239 WARN com.zaxxer.hikari.pool.HikariPool$HouseKeeper [HikariPool-3 housekeeper] HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=14h47m10s180ms317µs799ns).
-2021-01-15 08:56:53,201 INFO org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(26)-127.0.0.1] Application shutdown requested.
-2021-01-15 08:56:53,231 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [RMI TCP Connection(26)-127.0.0.1] Shutting down ExecutorService 'applicationTaskExecutor'
-2021-01-15 08:56:53,231 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(26)-127.0.0.1] HikariPool-3 - Shutdown initiated...
-2021-01-15 08:56:53,233 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(26)-127.0.0.1] HikariPool-3 - Shutdown completed.
+2021-01-18 11:22:32,093 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting MvcApplication using Java 15.0.1 on DESKTOP-SCPHGS9 with PID 11440 (C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc\target\classes started by kkt in C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc)
+2021-01-18 11:22:32,097 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: localhost
+2021-01-18 11:22:32,137 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-18 11:22:32,138 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-01-18 11:22:32,760 WARN org.mybatis.logging.Logger [restartedMain] No MyBatis mapper was found in '[com.qai.mvc]' package. Please check your configuration.
+2021-01-18 11:22:33,087 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9001 (http)
+2021-01-18 11:22:33,096 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:22:33,097 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-18 11:22:33,097 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-18 11:22:33,167 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-18 11:22:33,167 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1028 ms
+2021-01-18 11:22:33,267 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-01-18 11:22:33,438 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-01-18 11:22:33,439 INFO com.qai.mvc.config.DatabaseConfiguration [restartedMain] datasource : HikariDataSource (HikariPool-1)
+2021-01-18 11:22:33,722 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:22:33,901 INFO org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration [restartedMain] 
+
+Using generated security password: 5c551702-8991-4dba-b6b9-c590c6bc52c1
+
+2021-01-18 11:22:33,994 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@23b9c3a3, org.springframework.security.web.context.SecurityContextPersistenceFilter@78a2d97f, org.springframework.security.web.header.HeaderWriterFilter@291ff5a6, org.springframework.security.web.csrf.CsrfFilter@3d693468, org.springframework.security.web.authentication.logout.LogoutFilter@344576f3, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@309556b5, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@7a24f7a0, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@702ba913, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3b580f6c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5e6f9b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@420ba942, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@bf3fb15, org.springframework.security.web.session.SessionManagementFilter@1bb52ceb, org.springframework.security.web.access.ExceptionTranslationFilter@492ef918, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@778ee4de]
+2021-01-18 11:22:34,048 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-01-18 11:22:34,062 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:22:34,083 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9001 (http) with context path ''
+2021-01-18 11:22:34,093 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started MvcApplication in 2.379 seconds (JVM running for 3.156)
+2021-01-18 11:22:39,298 INFO org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(7)-127.0.0.1] Application shutdown requested.
+2021-01-18 11:22:39,329 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [RMI TCP Connection(7)-127.0.0.1] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:22:39,330 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(7)-127.0.0.1] HikariPool-1 - Shutdown initiated...
+2021-01-18 11:22:39,336 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(7)-127.0.0.1] HikariPool-1 - Shutdown completed.
+2021-01-18 11:22:59,059 INFO org.springframework.boot.StartupInfoLogger [main] Starting MvcApplicationTests using Java 15.0.1 on DESKTOP-SCPHGS9 with PID 21340 (started by kkt in C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc)
+2021-01-18 11:22:59,060 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: localhost
+2021-01-18 11:22:59,963 WARN org.mybatis.logging.Logger [main] No MyBatis mapper was found in '[com.qai.mvc]' package. Please check your configuration.
+2021-01-18 11:23:00,311 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-01-18 11:23:00,574 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-01-18 11:23:00,575 INFO com.qai.mvc.config.DatabaseConfiguration [main] datasource : HikariDataSource (HikariPool-1)
+2021-01-18 11:23:01,194 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:23:01,698 INFO org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration [main] 
+
+Using generated security password: 3bf29e41-38a8-4d6e-847f-134735ab551f
+
+2021-01-18 11:23:01,995 INFO org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@58601e7a, org.springframework.security.web.context.SecurityContextPersistenceFilter@221ca495, org.springframework.security.web.header.HeaderWriterFilter@37c1cfa, org.springframework.security.web.csrf.CsrfFilter@6826b70f, org.springframework.security.web.authentication.logout.LogoutFilter@7b8aebd0, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3a0896b3, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4f64d9cb, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@62735b13, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7f5ce33e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7d47dfed, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3ec9f8d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7aae1170, org.springframework.security.web.session.SessionManagementFilter@30036a18, org.springframework.security.web.access.ExceptionTranslationFilter@10fb4575, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59262a90]
+2021-01-18 11:23:02,148 INFO org.springframework.boot.StartupInfoLogger [main] Started MvcApplicationTests in 3.431 seconds (JVM running for 4.259)
+2021-01-18 11:23:02,707 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:23:02,709 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2021-01-18 11:23:02,724 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2021-01-18 11:38:03,953 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting MvcApplication using Java 15.0.1 on DESKTOP-SCPHGS9 with PID 21404 (C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc\target\classes started by kkt in C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc)
+2021-01-18 11:38:03,955 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: localhost
+2021-01-18 11:38:03,998 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-18 11:38:03,998 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-01-18 11:38:04,537 WARN org.mybatis.logging.Logger [restartedMain] No MyBatis mapper was found in '[com.qai.mvc]' package. Please check your configuration.
+2021-01-18 11:38:04,823 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9001 (http)
+2021-01-18 11:38:04,830 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:38:04,830 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-18 11:38:04,831 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-18 11:38:04,895 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-18 11:38:04,895 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 896 ms
+2021-01-18 11:38:04,981 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-01-18 11:38:05,120 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-01-18 11:38:05,121 INFO com.qai.mvc.config.DatabaseConfiguration [restartedMain] datasource : HikariDataSource (HikariPool-1)
+2021-01-18 11:38:05,326 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:38:05,489 INFO org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration [restartedMain] 
+
+Using generated security password: cf6ca8bc-8370-49aa-87fa-d2aa2dc11939
+
+2021-01-18 11:38:05,575 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1b5b134e, org.springframework.security.web.context.SecurityContextPersistenceFilter@1af06275, org.springframework.security.web.header.HeaderWriterFilter@a051e91, org.springframework.security.web.csrf.CsrfFilter@12ab0643, org.springframework.security.web.authentication.logout.LogoutFilter@7744bf9d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5ed8496b, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@3f6005eb, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@a794ead, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7b5b0f82, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4891b0c6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3dac1d9e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@29fd777f, org.springframework.security.web.session.SessionManagementFilter@573ca22a, org.springframework.security.web.access.ExceptionTranslationFilter@a32479, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@43f0499e]
+2021-01-18 11:38:05,633 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-01-18 11:38:05,657 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:38:05,682 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9001 (http) with context path ''
+2021-01-18 11:38:05,690 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started MvcApplication in 2.029 seconds (JVM running for 2.677)
+2021-01-18 11:38:29,921 INFO org.apache.juli.logging.DirectJDKLog [http-nio-9001-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-18 11:38:29,922 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9001-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-01-18 11:38:29,924 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9001-exec-1] Completed initialization in 2 ms
+2021-01-18 11:39:34,603 INFO org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(10)-127.0.0.1] Application shutdown requested.
+2021-01-18 11:39:34,644 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [RMI TCP Connection(10)-127.0.0.1] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:39:34,645 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(10)-127.0.0.1] HikariPool-1 - Shutdown initiated...
+2021-01-18 11:39:34,650 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(10)-127.0.0.1] HikariPool-1 - Shutdown completed.
+2021-01-18 11:39:55,301 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting MvcApplication using Java 15.0.1 on DESKTOP-SCPHGS9 with PID 17848 (C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc\target\classes started by kkt in C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc)
+2021-01-18 11:39:55,304 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: localhost
+2021-01-18 11:39:55,341 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-18 11:39:55,342 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-01-18 11:39:55,895 WARN org.mybatis.logging.Logger [restartedMain] No MyBatis mapper was found in '[com.qai.mvc]' package. Please check your configuration.
+2021-01-18 11:39:56,189 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9001 (http)
+2021-01-18 11:39:56,197 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:39:56,197 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-18 11:39:56,198 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-18 11:39:56,266 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-18 11:39:56,266 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 924 ms
+2021-01-18 11:39:56,366 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-01-18 11:39:56,506 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-01-18 11:39:56,506 INFO com.qai.mvc.config.DatabaseConfiguration [restartedMain] datasource : HikariDataSource (HikariPool-1)
+2021-01-18 11:39:56,723 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:39:56,896 INFO org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration [restartedMain] 
+
+Using generated security password: 54020e69-1d08-4682-bae3-1993c429161a
+
+2021-01-18 11:39:56,983 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@f949bc8, org.springframework.security.web.context.SecurityContextPersistenceFilter@1d838973, org.springframework.security.web.header.HeaderWriterFilter@3c4a5728, org.springframework.security.web.csrf.CsrfFilter@c51060c, org.springframework.security.web.authentication.logout.LogoutFilter@7f0fba79, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5be97468, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@1d41744a, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@57a131ab, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@62c774c8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@157d0056, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@65d48f19, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e997ea3, org.springframework.security.web.session.SessionManagementFilter@506820a8, org.springframework.security.web.access.ExceptionTranslationFilter@2aa57ea0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6ba4b33a]
+2021-01-18 11:39:57,036 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-01-18 11:39:57,051 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:39:57,070 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9001 (http) with context path ''
+2021-01-18 11:39:57,078 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started MvcApplication in 2.067 seconds (JVM running for 2.649)
+2021-01-18 11:39:57,237 INFO org.apache.juli.logging.DirectJDKLog [http-nio-9001-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-18 11:39:57,237 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9001-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-01-18 11:39:57,238 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9001-exec-1] Completed initialization in 1 ms
+2021-01-18 11:41:06,176 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-5] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:41:06,177 INFO com.zaxxer.hikari.HikariDataSource [Thread-5] HikariPool-1 - Shutdown initiated...
+2021-01-18 11:41:06,183 INFO com.zaxxer.hikari.HikariDataSource [Thread-5] HikariPool-1 - Shutdown completed.
+2021-01-18 11:41:06,246 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting MvcApplication using Java 15.0.1 on DESKTOP-SCPHGS9 with PID 17848 (C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc\target\classes started by kkt in C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc)
+2021-01-18 11:41:06,246 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: localhost
+2021-01-18 11:41:06,408 WARN org.mybatis.logging.Logger [restartedMain] No MyBatis mapper was found in '[com.qai.mvc]' package. Please check your configuration.
+2021-01-18 11:41:06,451 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9001 (http)
+2021-01-18 11:41:06,452 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:41:06,452 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-18 11:41:06,452 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-18 11:41:06,468 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-18 11:41:06,468 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 220 ms
+2021-01-18 11:41:06,496 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Starting...
+2021-01-18 11:41:06,508 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Start completed.
+2021-01-18 11:41:06,508 INFO com.qai.mvc.config.DatabaseConfiguration [restartedMain] datasource : HikariDataSource (HikariPool-2)
+2021-01-18 11:41:06,558 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:41:06,606 INFO org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration [restartedMain] 
+
+Using generated security password: d82fd501-0f1f-4cc8-b9f8-09179a3322db
+
+2021-01-18 11:41:06,613 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@40c80978, org.springframework.security.web.context.SecurityContextPersistenceFilter@4f273f95, org.springframework.security.web.header.HeaderWriterFilter@2a052918, org.springframework.security.web.csrf.CsrfFilter@793ce545, org.springframework.security.web.authentication.logout.LogoutFilter@2cf34f8f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3b3f5c3f, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@59845445, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1342a21e, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@299faa5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@77e05c48, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@74aef645, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@525dcaed, org.springframework.security.web.session.SessionManagementFilter@512ffe38, org.springframework.security.web.access.ExceptionTranslationFilter@f56e53c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3dcdd285]
+2021-01-18 11:41:06,629 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-01-18 11:41:06,638 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:41:06,641 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9001 (http) with context path ''
+2021-01-18 11:41:06,645 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started MvcApplication in 0.426 seconds (JVM running for 72.216)
+2021-01-18 11:41:06,648 INFO org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2021-01-18 11:41:14,049 INFO org.apache.juli.logging.DirectJDKLog [http-nio-9001-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-18 11:41:14,050 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9001-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-01-18 11:41:14,051 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9001-exec-1] Completed initialization in 1 ms
+2021-01-18 11:42:27,333 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-8] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:42:27,333 INFO com.zaxxer.hikari.HikariDataSource [Thread-8] HikariPool-2 - Shutdown initiated...
+2021-01-18 11:42:27,335 INFO com.zaxxer.hikari.HikariDataSource [Thread-8] HikariPool-2 - Shutdown completed.
+2021-01-18 11:42:27,392 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting MvcApplication using Java 15.0.1 on DESKTOP-SCPHGS9 with PID 17848 (C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc\target\classes started by kkt in C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc)
+2021-01-18 11:42:27,393 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: localhost
+2021-01-18 11:42:27,539 WARN org.mybatis.logging.Logger [restartedMain] No MyBatis mapper was found in '[com.qai.mvc]' package. Please check your configuration.
+2021-01-18 11:42:27,573 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9001 (http)
+2021-01-18 11:42:27,574 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:42:27,574 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-18 11:42:27,574 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-18 11:42:27,590 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-18 11:42:27,590 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 195 ms
+2021-01-18 11:42:27,606 WARN org.springframework.context.support.AbstractApplicationContext [restartedMain] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'apiController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.qai.mvc.session.UserInfo' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup="", name="", description="", authenticationType=CONTAINER, type=java.lang.Object.class, mappedName="")}
+2021-01-18 11:42:27,606 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Stopping service [Tomcat]
+2021-01-18 11:42:27,613 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [restartedMain] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-01-18 11:42:27,626 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [restartedMain] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'com.qai.mvc.session.UserInfo' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.qai.mvc.session.UserInfo' in your configuration.
+
+2021-01-18 11:42:57,733 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting MvcApplication using Java 15.0.1 on DESKTOP-SCPHGS9 with PID 17848 (C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc\target\classes started by kkt in C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc)
+2021-01-18 11:42:57,734 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: localhost
+2021-01-18 11:42:57,907 WARN org.mybatis.logging.Logger [restartedMain] No MyBatis mapper was found in '[com.qai.mvc]' package. Please check your configuration.
+2021-01-18 11:42:57,937 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9001 (http)
+2021-01-18 11:42:57,937 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:42:57,938 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-18 11:42:57,938 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-18 11:42:57,953 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-18 11:42:57,953 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 217 ms
+2021-01-18 11:42:57,975 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-3 - Starting...
+2021-01-18 11:42:57,993 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-3 - Start completed.
+2021-01-18 11:42:57,993 INFO com.qai.mvc.config.DatabaseConfiguration [restartedMain] datasource : HikariDataSource (HikariPool-3)
+2021-01-18 11:42:58,033 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:42:58,071 INFO org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration [restartedMain] 
+
+Using generated security password: d2623457-91f5-48f9-874a-b9e7e95df3f6
+
+2021-01-18 11:42:58,078 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5bc07856, org.springframework.security.web.context.SecurityContextPersistenceFilter@65d75a82, org.springframework.security.web.header.HeaderWriterFilter@5ea9480d, org.springframework.security.web.csrf.CsrfFilter@25e28777, org.springframework.security.web.authentication.logout.LogoutFilter@1bb447d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@197a180e, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@12e042dc, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6ce0247, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@246f424c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@63be1ec8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@77c3cb92, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4fbdd0f8, org.springframework.security.web.session.SessionManagementFilter@54bfa65d, org.springframework.security.web.access.ExceptionTranslationFilter@2e151f57, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@56817a4b]
+2021-01-18 11:42:58,089 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-01-18 11:42:58,096 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:42:58,098 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9001 (http) with context path ''
+2021-01-18 11:42:58,102 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started MvcApplication in 0.405 seconds (JVM running for 183.672)
+2021-01-18 11:42:58,104 INFO org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2021-01-18 11:43:09,828 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-13] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:43:09,828 INFO com.zaxxer.hikari.HikariDataSource [Thread-13] HikariPool-3 - Shutdown initiated...
+2021-01-18 11:43:09,831 INFO com.zaxxer.hikari.HikariDataSource [Thread-13] HikariPool-3 - Shutdown completed.
+2021-01-18 11:43:09,896 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting MvcApplication using Java 15.0.1 on DESKTOP-SCPHGS9 with PID 17848 (C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc\target\classes started by kkt in C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc)
+2021-01-18 11:43:09,897 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: localhost
+2021-01-18 11:43:10,067 WARN org.mybatis.logging.Logger [restartedMain] No MyBatis mapper was found in '[com.qai.mvc]' package. Please check your configuration.
+2021-01-18 11:43:10,100 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9001 (http)
+2021-01-18 11:43:10,100 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:43:10,101 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-18 11:43:10,101 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-18 11:43:10,113 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-18 11:43:10,114 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 215 ms
+2021-01-18 11:43:10,133 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-4 - Starting...
+2021-01-18 11:43:10,145 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-4 - Start completed.
+2021-01-18 11:43:10,145 INFO com.qai.mvc.config.DatabaseConfiguration [restartedMain] datasource : HikariDataSource (HikariPool-4)
+2021-01-18 11:43:10,184 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:43:10,227 INFO org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration [restartedMain] 
+
+Using generated security password: acd7955b-ce34-435e-80f9-a6a8e91f9c73
+
+2021-01-18 11:43:10,234 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5b5a1613, org.springframework.security.web.context.SecurityContextPersistenceFilter@5ee3d6e, org.springframework.security.web.header.HeaderWriterFilter@32369d0d, org.springframework.security.web.csrf.CsrfFilter@44dbb3f7, org.springframework.security.web.authentication.logout.LogoutFilter@63ee7c5b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2e3eb27d, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@2e673bc4, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6b457621, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@945afd0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@167b67ed, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@10234eda, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@30b38c6e, org.springframework.security.web.session.SessionManagementFilter@1cb37104, org.springframework.security.web.access.ExceptionTranslationFilter@1de1cce2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4d4fac1d]
+2021-01-18 11:43:10,243 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-01-18 11:43:10,250 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:43:10,254 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9001 (http) with context path ''
+2021-01-18 11:43:10,260 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started MvcApplication in 0.386 seconds (JVM running for 195.831)
+2021-01-18 11:43:10,261 INFO org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2021-01-18 11:43:24,752 INFO org.apache.juli.logging.DirectJDKLog [http-nio-9001-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-18 11:43:24,753 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9001-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-01-18 11:43:24,754 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9001-exec-1] Completed initialization in 1 ms
+2021-01-18 11:46:16,237 INFO org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(22)-127.0.0.1] Application shutdown requested.
+2021-01-18 11:46:16,265 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [RMI TCP Connection(22)-127.0.0.1] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:46:16,265 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(22)-127.0.0.1] HikariPool-4 - Shutdown initiated...
+2021-01-18 11:46:16,268 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(22)-127.0.0.1] HikariPool-4 - Shutdown completed.
+2021-01-18 11:46:30,843 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting MvcApplication using Java 15.0.1 on DESKTOP-SCPHGS9 with PID 9976 (C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc\target\classes started by kkt in C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc)
+2021-01-18 11:46:30,846 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: localhost
+2021-01-18 11:46:30,887 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-18 11:46:30,887 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-01-18 11:46:31,410 WARN org.mybatis.logging.Logger [restartedMain] No MyBatis mapper was found in '[com.qai.mvc]' package. Please check your configuration.
+2021-01-18 11:46:31,693 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9002 (http)
+2021-01-18 11:46:31,701 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9002"]
+2021-01-18 11:46:31,701 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-18 11:46:31,701 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-18 11:46:31,753 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-18 11:46:31,754 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 866 ms
+2021-01-18 11:46:31,834 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-01-18 11:46:31,971 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-01-18 11:46:31,972 INFO com.qai.mvc.config.DatabaseConfiguration [restartedMain] datasource : HikariDataSource (HikariPool-1)
+2021-01-18 11:46:32,182 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:46:32,346 INFO org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration [restartedMain] 
+
+Using generated security password: fb328f16-786e-4cdb-97cb-a3b00961d891
+
+2021-01-18 11:46:32,434 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@56af21e7, org.springframework.security.web.context.SecurityContextPersistenceFilter@5a8e1e67, org.springframework.security.web.header.HeaderWriterFilter@35d672b6, org.springframework.security.web.csrf.CsrfFilter@521ecff3, org.springframework.security.web.authentication.logout.LogoutFilter@40b4ba57, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@49494918, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@d9abaed, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@75533552, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@69c639d2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@45946418, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5f9a8f26, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2d038a83, org.springframework.security.web.session.SessionManagementFilter@44433c66, org.springframework.security.web.access.ExceptionTranslationFilter@68b12de6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6960020a]
+2021-01-18 11:46:32,486 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-01-18 11:46:32,499 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9002"]
+2021-01-18 11:46:32,518 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9002 (http) with context path ''
+2021-01-18 11:46:32,526 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started MvcApplication in 1.976 seconds (JVM running for 2.556)
+2021-01-18 11:46:49,206 INFO org.apache.juli.logging.DirectJDKLog [http-nio-9002-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-18 11:46:49,207 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9002-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-01-18 11:46:49,208 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9002-exec-1] Completed initialization in 1 ms
+2021-01-18 11:47:27,313 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-5] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:47:27,314 INFO com.zaxxer.hikari.HikariDataSource [Thread-5] HikariPool-1 - Shutdown initiated...
+2021-01-18 11:47:27,327 INFO com.zaxxer.hikari.HikariDataSource [Thread-5] HikariPool-1 - Shutdown completed.
+2021-01-18 11:47:27,430 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting MvcApplication using Java 15.0.1 on DESKTOP-SCPHGS9 with PID 9976 (C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc\target\classes started by kkt in C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc)
+2021-01-18 11:47:27,431 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: localhost
+2021-01-18 11:47:27,587 WARN org.mybatis.logging.Logger [restartedMain] No MyBatis mapper was found in '[com.qai.mvc]' package. Please check your configuration.
+2021-01-18 11:47:27,670 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9001 (http)
+2021-01-18 11:47:27,671 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:47:27,672 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-18 11:47:27,672 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-18 11:47:27,697 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-18 11:47:27,697 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 264 ms
+2021-01-18 11:47:27,722 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Starting...
+2021-01-18 11:47:27,734 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Start completed.
+2021-01-18 11:47:27,734 INFO com.qai.mvc.config.DatabaseConfiguration [restartedMain] datasource : HikariDataSource (HikariPool-2)
+2021-01-18 11:47:27,776 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:47:27,816 INFO org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration [restartedMain] 
+
+Using generated security password: 93223c44-5463-4dc3-a6c6-b3d3c18bc1b1
+
+2021-01-18 11:47:27,823 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2c5c6d47, org.springframework.security.web.context.SecurityContextPersistenceFilter@41dd0a8e, org.springframework.security.web.header.HeaderWriterFilter@6cb2f176, org.springframework.security.web.csrf.CsrfFilter@66e6cd38, org.springframework.security.web.authentication.logout.LogoutFilter@1dc85f03, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@8a9488f, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@1dfe43ff, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@ec870ee, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1352c99b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a7959fc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@313b2884, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4ce7ac88, org.springframework.security.web.session.SessionManagementFilter@11029a9b, org.springframework.security.web.access.ExceptionTranslationFilter@7b4e0c2d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@34c2ce8c]
+2021-01-18 11:47:27,836 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-01-18 11:47:27,845 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:47:27,847 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9001 (http) with context path ''
+2021-01-18 11:47:27,853 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started MvcApplication in 0.453 seconds (JVM running for 57.883)
+2021-01-18 11:47:27,855 INFO org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2021-01-18 11:48:01,136 INFO org.apache.juli.logging.DirectJDKLog [http-nio-9001-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-18 11:48:01,136 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9001-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-01-18 11:48:01,137 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9001-exec-1] Completed initialization in 0 ms
+2021-01-18 11:48:53,563 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-8] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:48:53,564 INFO com.zaxxer.hikari.HikariDataSource [Thread-8] HikariPool-2 - Shutdown initiated...
+2021-01-18 11:48:53,566 INFO com.zaxxer.hikari.HikariDataSource [Thread-8] HikariPool-2 - Shutdown completed.
+2021-01-18 11:48:53,630 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting MvcApplication using Java 15.0.1 on DESKTOP-SCPHGS9 with PID 9976 (C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc\target\classes started by kkt in C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc)
+2021-01-18 11:48:53,630 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: localhost
+2021-01-18 11:48:53,781 WARN org.mybatis.logging.Logger [restartedMain] No MyBatis mapper was found in '[com.qai.mvc]' package. Please check your configuration.
+2021-01-18 11:48:53,816 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9001 (http)
+2021-01-18 11:48:53,817 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:48:53,817 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-18 11:48:53,817 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-18 11:48:53,832 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-18 11:48:53,832 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 199 ms
+2021-01-18 11:48:53,853 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-3 - Starting...
+2021-01-18 11:48:53,866 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-3 - Start completed.
+2021-01-18 11:48:53,866 INFO com.qai.mvc.config.DatabaseConfiguration [restartedMain] datasource : HikariDataSource (HikariPool-3)
+2021-01-18 11:48:53,911 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:48:53,954 INFO org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration [restartedMain] 
+
+Using generated security password: 33a9d996-43b0-4e82-9f34-e2ee17657c3b
+
+2021-01-18 11:48:53,961 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5d7b03e2, org.springframework.security.web.context.SecurityContextPersistenceFilter@37c2a0fe, org.springframework.security.web.header.HeaderWriterFilter@42ca746f, org.springframework.security.web.csrf.CsrfFilter@407f4ccb, org.springframework.security.web.authentication.logout.LogoutFilter@c95b3c6, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2807c9a6, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4b74196a, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@5b3f2ac4, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@17d6a00e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3f8f0523, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2e7767b1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4de382fc, org.springframework.security.web.session.SessionManagementFilter@de1bc9d, org.springframework.security.web.access.ExceptionTranslationFilter@37b7ee53, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2b85b8f9]
+2021-01-18 11:48:53,976 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-01-18 11:48:53,982 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:48:53,985 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9001 (http) with context path ''
+2021-01-18 11:48:53,988 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started MvcApplication in 0.383 seconds (JVM running for 144.018)
+2021-01-18 11:48:53,990 INFO org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2021-01-18 11:48:59,435 INFO org.apache.juli.logging.DirectJDKLog [http-nio-9001-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-18 11:48:59,436 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9001-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-01-18 11:48:59,436 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9001-exec-1] Completed initialization in 0 ms
+2021-01-18 11:49:09,745 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-13] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:49:09,746 INFO com.zaxxer.hikari.HikariDataSource [Thread-13] HikariPool-3 - Shutdown initiated...
+2021-01-18 11:49:09,749 INFO com.zaxxer.hikari.HikariDataSource [Thread-13] HikariPool-3 - Shutdown completed.
+2021-01-18 11:49:09,837 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting MvcApplication using Java 15.0.1 on DESKTOP-SCPHGS9 with PID 9976 (C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc\target\classes started by kkt in C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc)
+2021-01-18 11:49:09,837 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: localhost
+2021-01-18 11:49:09,980 WARN org.mybatis.logging.Logger [restartedMain] No MyBatis mapper was found in '[com.qai.mvc]' package. Please check your configuration.
+2021-01-18 11:49:10,008 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9001 (http)
+2021-01-18 11:49:10,008 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:49:10,008 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-18 11:49:10,009 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-18 11:49:10,024 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-18 11:49:10,024 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 185 ms
+2021-01-18 11:49:10,042 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-4 - Starting...
+2021-01-18 11:49:10,052 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-4 - Start completed.
+2021-01-18 11:49:10,053 INFO com.qai.mvc.config.DatabaseConfiguration [restartedMain] datasource : HikariDataSource (HikariPool-4)
+2021-01-18 11:49:10,089 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:49:10,128 INFO org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration [restartedMain] 
+
+Using generated security password: d24c6f16-0a5a-4b51-aaef-e4fedbdd4098
+
+2021-01-18 11:49:10,134 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@69e73be0, org.springframework.security.web.context.SecurityContextPersistenceFilter@80893de, org.springframework.security.web.header.HeaderWriterFilter@7cdfdede, org.springframework.security.web.csrf.CsrfFilter@7f041433, org.springframework.security.web.authentication.logout.LogoutFilter@ecff46a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@769d46a3, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@5d9574dc, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@13d06fe6, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@483b1da6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@20a3067, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@a127d6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@fe49b61, org.springframework.security.web.session.SessionManagementFilter@5772b08f, org.springframework.security.web.access.ExceptionTranslationFilter@4f58aa02, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@396874be]
+2021-01-18 11:49:10,144 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-01-18 11:49:10,149 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:49:10,151 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9001 (http) with context path ''
+2021-01-18 11:49:10,155 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started MvcApplication in 0.341 seconds (JVM running for 160.185)
+2021-01-18 11:49:10,157 INFO org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2021-01-18 11:49:12,743 INFO org.apache.juli.logging.DirectJDKLog [http-nio-9001-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-18 11:49:12,743 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9001-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-01-18 11:49:12,744 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9001-exec-1] Completed initialization in 0 ms
+2021-01-18 11:49:36,272 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-18] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:49:36,273 INFO com.zaxxer.hikari.HikariDataSource [Thread-18] HikariPool-4 - Shutdown initiated...
+2021-01-18 11:49:36,274 INFO com.zaxxer.hikari.HikariDataSource [Thread-18] HikariPool-4 - Shutdown completed.
+2021-01-18 11:49:36,333 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting MvcApplication using Java 15.0.1 on DESKTOP-SCPHGS9 with PID 9976 (C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc\target\classes started by kkt in C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc)
+2021-01-18 11:49:36,334 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: localhost
+2021-01-18 11:49:36,466 WARN org.mybatis.logging.Logger [restartedMain] No MyBatis mapper was found in '[com.qai.mvc]' package. Please check your configuration.
+2021-01-18 11:49:36,495 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9001 (http)
+2021-01-18 11:49:36,495 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:49:36,496 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-18 11:49:36,496 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-18 11:49:36,509 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-18 11:49:36,509 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 173 ms
+2021-01-18 11:49:36,527 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-5 - Starting...
+2021-01-18 11:49:36,538 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-5 - Start completed.
+2021-01-18 11:49:36,538 INFO com.qai.mvc.config.DatabaseConfiguration [restartedMain] datasource : HikariDataSource (HikariPool-5)
+2021-01-18 11:49:36,572 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:49:36,605 INFO org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration [restartedMain] 
+
+Using generated security password: 57165c8b-e227-4459-bcff-8d77e2734253
+
+2021-01-18 11:49:36,611 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6358ec1a, org.springframework.security.web.context.SecurityContextPersistenceFilter@3aa62772, org.springframework.security.web.header.HeaderWriterFilter@7f18fce, org.springframework.security.web.csrf.CsrfFilter@7b7c714f, org.springframework.security.web.authentication.logout.LogoutFilter@4f75f1fe, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5497503f, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@255a78ea, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@7a06cbab, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5135b36b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2ba82daf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@202c48eb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@147e6a7c, org.springframework.security.web.session.SessionManagementFilter@2248dc7d, org.springframework.security.web.access.ExceptionTranslationFilter@6bcf4a1b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2b265c36]
+2021-01-18 11:49:36,626 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-01-18 11:49:36,633 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:49:36,636 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9001 (http) with context path ''
+2021-01-18 11:49:36,641 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started MvcApplication in 0.327 seconds (JVM running for 186.671)
+2021-01-18 11:49:36,643 INFO org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2021-01-18 11:49:45,580 INFO org.apache.juli.logging.DirectJDKLog [http-nio-9001-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-18 11:49:45,581 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9001-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-01-18 11:49:45,581 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9001-exec-1] Completed initialization in 0 ms
+2021-01-18 11:50:10,561 INFO org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(19)-127.0.0.1] Application shutdown requested.
+2021-01-18 11:50:10,585 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [RMI TCP Connection(19)-127.0.0.1] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:50:10,586 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(19)-127.0.0.1] HikariPool-5 - Shutdown initiated...
+2021-01-18 11:50:10,588 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(19)-127.0.0.1] HikariPool-5 - Shutdown completed.
+2021-01-18 11:50:22,767 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting MvcApplication using Java 15.0.1 on DESKTOP-SCPHGS9 with PID 19624 (C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc\target\classes started by kkt in C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc)
+2021-01-18 11:50:22,770 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: localhost
+2021-01-18 11:50:22,808 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-18 11:50:22,808 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-01-18 11:50:23,305 WARN org.mybatis.logging.Logger [restartedMain] No MyBatis mapper was found in '[com.qai.mvc]' package. Please check your configuration.
+2021-01-18 11:50:23,576 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9001 (http)
+2021-01-18 11:50:23,583 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:50:23,584 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-18 11:50:23,584 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-18 11:50:23,638 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-18 11:50:23,639 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 830 ms
+2021-01-18 11:50:23,701 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-01-18 11:50:23,836 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-01-18 11:50:23,837 INFO com.qai.mvc.config.DatabaseConfiguration [restartedMain] datasource : HikariDataSource (HikariPool-1)
+2021-01-18 11:50:24,042 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:50:24,224 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-01-18 11:50:24,237 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:50:24,255 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9001 (http) with context path ''
+2021-01-18 11:50:24,263 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started MvcApplication in 1.792 seconds (JVM running for 2.337)
+2021-01-18 11:50:27,362 INFO org.apache.juli.logging.DirectJDKLog [http-nio-9001-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-18 11:50:27,362 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9001-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-01-18 11:50:27,363 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9001-exec-1] Completed initialization in 1 ms
+2021-01-18 11:50:59,459 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-5] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:50:59,460 INFO com.zaxxer.hikari.HikariDataSource [Thread-5] HikariPool-1 - Shutdown initiated...
+2021-01-18 11:50:59,471 INFO com.zaxxer.hikari.HikariDataSource [Thread-5] HikariPool-1 - Shutdown completed.
+2021-01-18 11:50:59,569 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting MvcApplication using Java 15.0.1 on DESKTOP-SCPHGS9 with PID 19624 (C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc\target\classes started by kkt in C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc)
+2021-01-18 11:50:59,569 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: localhost
+2021-01-18 11:50:59,859 WARN org.mybatis.logging.Logger [restartedMain] No MyBatis mapper was found in '[com.qai.mvc]' package. Please check your configuration.
+2021-01-18 11:50:59,938 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9001 (http)
+2021-01-18 11:50:59,939 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:50:59,940 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-18 11:50:59,941 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-18 11:50:59,963 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-18 11:50:59,964 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 393 ms
+2021-01-18 11:50:59,995 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Starting...
+2021-01-18 11:51:00,015 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Start completed.
+2021-01-18 11:51:00,015 INFO com.qai.mvc.config.DatabaseConfiguration [restartedMain] datasource : HikariDataSource (HikariPool-2)
+2021-01-18 11:51:00,105 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:51:00,180 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-01-18 11:51:00,190 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:51:00,194 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9001 (http) with context path ''
+2021-01-18 11:51:00,206 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started MvcApplication in 0.674 seconds (JVM running for 38.281)
+2021-01-18 11:51:00,209 INFO org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2021-01-18 11:51:01,364 INFO org.springframework.boot.StartupInfoLogger [main] Starting MvcApplicationTests using Java 15.0.1 on DESKTOP-SCPHGS9 with PID 13104 (started by kkt in C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc)
+2021-01-18 11:51:01,366 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: localhost
+2021-01-18 11:51:02,176 WARN org.mybatis.logging.Logger [main] No MyBatis mapper was found in '[com.qai.mvc]' package. Please check your configuration.
+2021-01-18 11:51:02,400 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-01-18 11:51:02,637 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-01-18 11:51:02,637 INFO com.qai.mvc.config.DatabaseConfiguration [main] datasource : HikariDataSource (HikariPool-1)
+2021-01-18 11:51:03,352 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:51:03,902 INFO org.springframework.boot.StartupInfoLogger [main] Started MvcApplicationTests in 2.881 seconds (JVM running for 3.884)
+2021-01-18 11:51:04,424 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:51:04,426 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2021-01-18 11:51:04,441 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2021-01-18 11:53:22,342 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-8] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:53:22,342 INFO com.zaxxer.hikari.HikariDataSource [Thread-8] HikariPool-2 - Shutdown initiated...
+2021-01-18 11:53:22,346 INFO com.zaxxer.hikari.HikariDataSource [Thread-8] HikariPool-2 - Shutdown completed.
+2021-01-18 11:53:22,414 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting MvcApplication using Java 15.0.1 on DESKTOP-SCPHGS9 with PID 19624 (C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc\target\classes started by kkt in C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc)
+2021-01-18 11:53:22,415 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: localhost
+2021-01-18 11:53:22,656 WARN org.mybatis.logging.Logger [restartedMain] No MyBatis mapper was found in '[com.qai.mvc]' package. Please check your configuration.
+2021-01-18 11:53:22,718 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9001 (http)
+2021-01-18 11:53:22,719 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:53:22,719 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-01-18 11:53:22,720 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-18 11:53:22,741 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-18 11:53:22,741 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 324 ms
+2021-01-18 11:53:22,762 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-3 - Starting...
+2021-01-18 11:53:22,774 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-3 - Start completed.
+2021-01-18 11:53:22,775 INFO com.qai.mvc.config.DatabaseConfiguration [restartedMain] datasource : HikariDataSource (HikariPool-3)
+2021-01-18 11:53:22,824 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:53:22,874 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-01-18 11:53:22,883 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9001"]
+2021-01-18 11:53:22,886 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9001 (http) with context path ''
+2021-01-18 11:53:22,891 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started MvcApplication in 0.501 seconds (JVM running for 180.965)
+2021-01-18 11:53:22,893 INFO org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2021-01-18 11:53:35,953 INFO org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(16)-127.0.0.1] Application shutdown requested.
+2021-01-18 11:53:35,981 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [RMI TCP Connection(16)-127.0.0.1] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:53:35,981 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(16)-127.0.0.1] HikariPool-3 - Shutdown initiated...
+2021-01-18 11:53:35,984 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(16)-127.0.0.1] HikariPool-3 - Shutdown completed.
+2021-01-18 11:53:42,947 INFO org.springframework.boot.StartupInfoLogger [main] Starting MvcApplicationTests using Java 15.0.1 on DESKTOP-SCPHGS9 with PID 21116 (started by kkt in C:\Users\kkt\Documents\workspace-spring-tool-suite-4-4.9.0.RELEASE\mvc\mvc)
+2021-01-18 11:53:42,948 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: localhost
+2021-01-18 11:53:43,730 WARN org.mybatis.logging.Logger [main] No MyBatis mapper was found in '[com.qai.mvc]' package. Please check your configuration.
+2021-01-18 11:53:43,986 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-01-18 11:53:44,230 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-01-18 11:53:44,231 INFO com.qai.mvc.config.DatabaseConfiguration [main] datasource : HikariDataSource (HikariPool-1)
+2021-01-18 11:53:44,817 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:53:45,251 INFO org.springframework.boot.StartupInfoLogger [main] Started MvcApplicationTests in 2.64 seconds (JVM running for 3.435)
+2021-01-18 11:53:45,752 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-18 11:53:45,754 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2021-01-18 11:53:45,766 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
