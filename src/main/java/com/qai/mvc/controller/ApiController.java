@@ -54,7 +54,7 @@ import lombok.extern.slf4j.Slf4j;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ApiController {
 	//
-	
+	 
 	@Value("$custom.path")
 	private String data0;
 	
