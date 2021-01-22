@@ -15,10 +15,12 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry
+                //.addMapping("/somePath/**")
                 .addMapping("/**")
                 //.allowedOrigins("http://localhost:8080", "http://localhost:8081");
+                //.allowedMethods("GET", "POST"); //메소드별 정의도 가능
                 .allowedOrigins("http://qtai.duckdns.org:9000")
-                .allowCredentials(true); // 필요한 경우
+                .allowCredentials(true); // cors사용시 session이 필요한 경우
             }
         };
     }
