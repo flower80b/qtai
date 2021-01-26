@@ -9,6 +9,8 @@ import lombok.ToString;
 @ToString
 public class UserLogin {
 	//
+	private String auth;
+	
 	private String macAddress;
 	
 	private String user_id;

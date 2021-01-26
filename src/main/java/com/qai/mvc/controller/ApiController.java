@@ -101,10 +101,11 @@ public class ApiController {
         headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
         
 		// 0. call Message Platform
-		boolean tf = this.callMessagePlatform("http://192.168.0.7:9002/logFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
-		if(!tf) {
+        Message tf = this.callMessagePlatform("http://192.168.0.7:9002/logFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
+		// f, s
+        if("F".equals(tf.getStatus())) {
 			//
-			message = Message.builder().message("Message PlatForm API 호출 실패되었습니다.").build();
+			message = Message.builder().message("Message PlatForm API 호출 실패되었습니다.").status("F").build();
 	        return new ResponseEntity<>(message, headers, HttpStatus.OK);
 		}
 		
@@ -112,14 +113,14 @@ public class ApiController {
 		boolean rtn = this.makeLogFile(entity.getLog_text(), "P1", entity.getMacAddress());
 		if(!rtn) {
 			//
-			message = Message.builder().message("Log File 생성 실패되었습니다.").build();
+			message = Message.builder().message("Log File 생성 실패되었습니다.").status("F").build();
 	        return new ResponseEntity<>(message, headers, HttpStatus.OK);
 		}
 		
 		// 2. insert DB
 		entity.setIp(StringUtil.getIp(request));
 		apiDao.insertUser(entity);
-		message = Message.builder().message("가입이 완료되었습니다.").build();
+		message = Message.builder().message("가입이 완료되었습니다.").status("S").build();
 		return new ResponseEntity<>(message, headers, HttpStatus.OK);
 		
 	}
@@ -152,18 +153,23 @@ public class ApiController {
 		
 		// 0. 로그인 체크 ==================================================================
 		Message message = this.loginDBCheck(entity);
-		if(!"로그인 성공.".equals(message.getMessage())) {
+		if(!"S".equals(message.getStatus())) {
 			//
 			return new ResponseEntity<>(message, headers, HttpStatus.OK);
 		}
 		
 		// 1. call API Message Platform ========================================================================================
-		boolean tf = this.callMessagePlatform("http://192.168.0.7:9002/loginLogFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
+		Message tf = this.callMessagePlatform("http://192.168.0.7:9002/loginLogFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
 		
-		if(!tf) {
+		// F, N, S
+		if(!"S".equals(tf.getStatus())) {
 			//
-			message = Message.builder().message("Message PlatForm API 호출 실패되었습니다.").build();
-			return new ResponseEntity<>(message, headers, HttpStatus.OK);
+//			if("N".equals(tf) || "F".equals(tf)) {
+//				message = tf;
+//			}else {
+//				message = Message.builder().message("Message PlatForm API 호출 실패되었습니다.").status("F").build();
+//			}
+			return new ResponseEntity<>(tf, headers, HttpStatus.OK);
 		}
 		
 		// 2. make file ================================================================
@@ -171,12 +177,51 @@ public class ApiController {
 		// log fail
 		if(!rtn) {
 			//
-			message = Message.builder().message("Log File 생성 실패 되었습니다.").build();
+			message = Message.builder().message("Log File 생성 실패 되었습니다.").status("F").build();
 	        return new ResponseEntity<>(message, headers, HttpStatus.OK);
 		}
 		
 		return new ResponseEntity<>(message, headers, HttpStatus.OK);
 	}
+	
+	@PostMapping("/user/auth")
+	@ResponseBody
+	public ResponseEntity<Message> loginAuth(@RequestBody UserLogin entity) {
+		//
+		HttpHeaders headers= new HttpHeaders();
+		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
+		
+		Message message = Message.builder().message("로그인 성공.").status("S").build();
+		
+		// 0. auth 체크 ==================================================================
+		if(!"dhsruf".equals(entity.getAuth()) ) {
+			//
+			Message ms = Message.builder().message("개인 인증 메세지가 일치 하지 않습니다.").status("F").build();
+			return new ResponseEntity<>(ms, headers, HttpStatus.OK);
+		}
+		
+		// 1. call API Message Platform ========================================================================================
+		//authFiltering
+		Message tf = this.callMessagePlatform("http://192.168.0.7:9002/authFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
+		
+		// F, N, S
+		if(!"S".equals(tf.getStatus())) {
+			//
+			return new ResponseEntity<>(tf, headers, HttpStatus.OK);
+		}
+		
+		// 2. make file ================================================================
+		boolean rtn = this.makeLogFile(entity.getLog_text(), "P2", entity.getMacAddress());
+		// log fail
+		if(!rtn) {
+			//
+			message = Message.builder().message("Log File 생성 실패 되었습니다.").status("F").build();
+	        return new ResponseEntity<>(message, headers, HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<>(message, headers, HttpStatus.OK);
+	}
+	
 	
 //	@GetMapping("session")
 //	public String get() {
@@ -252,7 +297,7 @@ public class ApiController {
 		this.callMessagePlatform("http://192.168.0.7:9002/logFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
 	}
 	
-	private boolean callMessagePlatform(String url, String[] text, String id, String pw, String mac) {
+	private Message callMessagePlatform(String url, String[] text, String id, String pw, String mac) {
 		//
 		try {
 			//
@@ -270,8 +315,8 @@ public class ApiController {
 			log.info(url + " sendData log :: " + vo.toString());
 			// Connection Timeout 10초, ReadTimeout 10초 설정.
 			HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();
-			factory.setConnectTimeout(2 * 1000);
-			factory.setReadTimeout(2 * 1000);
+			factory.setConnectTimeout(300 * 1000);
+			factory.setReadTimeout(300 * 1000);
 
 			// create an instance of RestTemplate
 			RestTemplate restTemplate = new RestTemplate(factory);
@@ -287,22 +332,21 @@ public class ApiController {
 			HttpEntity<SendVO> entity = new HttpEntity<>(vo, headers);
 
 			// send POST request
-			ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
-
+			ResponseEntity<Message> response = restTemplate.postForEntity(url, entity, Message.class);
+			
+			// F, N, S
 			// check response
 			if (response.getStatusCode() == HttpStatus.OK) {
 				log.info("Message PlatForm Request Successful !!!!");
-				log.info(response.getBody());
-				return true;
+				return response.getBody();
 			} else {
 				log.info("Message PlatForm Request Failed !!!");
-				log.info(response.getStatusCode().toString());
-				return false;
+				return Message.builder().message("Message PlatForm Failed !!!").status("F").build();
 			}
 		}catch(Exception e) {
 			//
 			log.error("Exception !!!!! "+e.getMessage());
-			return false;
+			return Message.builder().message("Message PlatForm Exception ").status("F").build();
 		}
 		
 	}
@@ -338,7 +382,7 @@ public class ApiController {
 		// 회원 가입 정보가 없을때
 		if(list.isEmpty()) {
 			//
-			message = Message.builder().message("회원 가입 정보가 없습니다.").build();
+			message = Message.builder().message("회원 가입 정보가 없습니다.").status("F").build();
 			return message;
 		}
 		
@@ -347,13 +391,13 @@ public class ApiController {
 		
 		if(!pw.equals(entity.getUser_pw())) {
 			//비밀번호비교
-			message = Message.builder().message("비밀번호가 틀렸습니다.").build();
+			message = Message.builder().message("비밀번호가 틀렸습니다.").status("F").build();
 			return message;
 		}
 		
 		// success login
 		userInfo.setUserId(entity.getUser_id()); //resource
-		message = Message.builder().message("로그인 성공.").build();
+		message = Message.builder().message("회원가입 성공").status("S").build();
 		return message;
 	}
 }
