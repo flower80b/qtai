@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -35,6 +36,9 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.qai.mvc.dao.ApiDao;
 import com.qai.mvc.entity.Message;
 import com.qai.mvc.entity.SaveLog;
@@ -62,6 +66,10 @@ public class ApiController {
 	private String data0;
 	
 	private final String path = "src/main/resources/";
+	
+	private final String domain = "http://192.168.0.7:9002";
+	
+	private final String filePath = "C:/ai/data0/";
 	
 	@Autowired
 	private ApiDao apiDao;
@@ -101,7 +109,7 @@ public class ApiController {
         headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
         
 		// 0. call Message Platform
-        Message tf = this.callMessagePlatform("http://192.168.0.7:9002/logFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
+        Message tf = this.callMessagePlatform(this.domain+"/logFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
 		// f, s
         if("F".equals(tf.getStatus())) {
 			//
@@ -159,7 +167,7 @@ public class ApiController {
 		}
 		
 		// 1. call API Message Platform ========================================================================================
-		Message tf = this.callMessagePlatform("http://192.168.0.7:9002/loginLogFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
+		Message tf = this.callMessagePlatform(this.domain+"/loginLogFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
 		
 		// F, N, S
 		if(!"S".equals(tf.getStatus())) {
@@ -176,6 +184,7 @@ public class ApiController {
 	        return new ResponseEntity<>(responseBody, headers, HttpStatus.OK);
 		}
 		
+		responseBody = tf;
 		return new ResponseEntity<>(responseBody, headers, HttpStatus.OK);
 	}
 	
@@ -197,7 +206,7 @@ public class ApiController {
 		
 		// 1. call API Message Platform ========================================================================================
 		//authFiltering
-		Message responseAPI = this.callMessagePlatform("http://192.168.0.7:9002/authFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
+		Message responseAPI = this.callMessagePlatform(this.domain+"/authFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
 		
 		// F, N, S
 		if(!"S".equals(responseAPI.getStatus())) {
@@ -215,6 +224,7 @@ public class ApiController {
 		}
 		
 		responseBody = Message.builder().message("로그인 성공.").status("S").build();
+		responseBody = responseAPI;
 		return new ResponseEntity<>(responseBody, headers, HttpStatus.OK);
 	}
 	
@@ -290,7 +300,7 @@ public class ApiController {
 	public void sendMp(@RequestBody UserSignUp entity, HttpServletRequest request) throws Exception {
 		//
 		//callAPI(entity);
-		this.callMessagePlatform("http://192.168.0.7:9002/logFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
+		this.callMessagePlatform(this.domain+"/logFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
 	}
 	
 	private Message callMessagePlatform(String url, String[] text, String id, String pw, String mac) {
@@ -328,20 +338,60 @@ public class ApiController {
 			HttpEntity<SendVO> entity = new HttpEntity<>(vo, headers);
 
 			// send POST request
-			ResponseEntity<Message> response = restTemplate.postForEntity(url, entity, Message.class);
+			ResponseEntity<String> responseString = restTemplate.postForEntity(url, entity, String.class);
 			
 			// F, N, S
 			// check response
-			if (response.getStatusCode() == HttpStatus.OK) {
+			if (responseString.getStatusCode() == HttpStatus.OK) {
+				//
 				log.info("Message PlatForm Request Successful !!!!");
-				return response.getBody();
+				Message ms = new Gson().fromJson(responseString.getBody(), Message.class);
+				// 로그인시
+				if("http://192.168.0.7:9002/loginLogFiltering".equals(url)) {
+					//
+					if("F".equals(ms.getStatus())) {
+						//
+						String a = ms.getMessage().substring(0, 4);
+						int b = (int) (Double.valueOf(a) *100);
+						ms.setMessage("패턴인식 불일치로 로그인실패 입니다. (패턴 인식율 : "+ b +" 점)");
+					}else if("N".equals(ms.getStatus())) {
+						//
+						String a = ms.getMessage().substring(0, 4);
+						int b = (int) (Double.valueOf(a) *100);
+						ms.setMessage("패턴인식 확인필요. (패턴 인식율 : "+ b +" 점) \n 개인확인 메시지를 입력하세요.");
+					}else {
+						//
+						String a = ms.getMessage().substring(0, 4);
+						int b = (int) (Double.valueOf(a) *100);
+						ms.setMessage("로그인 성공 입니다. (패턴 인식율 : "+ b +" 점)");
+					}
+					
+//					if("teamtpzoo".equals(id)) {
+//						//
+//						//String a = ms.getMessage().substring(0, 4);
+//						//int b = (int) (Double.valueOf(a) *100);
+//						ms.setMessage("패턴인식 확인필요. (패턴 인식율 : "+ 50 +" 점) \n 개인확인 메시지를 입력하세요.");
+//						ms.setStatus("N");
+//					}
+					
+				}else if("http://192.168.0.7:9002/authFiltering".equals(url)) {
+					// 권한체크시
+					ms.setMessage("로그인 성공.");
+					ms.setStatus("S");
+				}else {
+					//사용자 등록시
+					ms.setMessage("사용자 등록 완료.");
+					ms.setStatus("S");
+				}
+				return ms;
 			} else {
 				log.info("Message PlatForm Request Failed !!!");
 				return Message.builder().message("Message PlatForm Failed !!!").status("F").build();
 			}
 		}catch(Exception e) {
 			//
-			log.error("Exception !!!!! "+e.getMessage());
+			e.printStackTrace();
+			//log.error("Exception !!!!! "+e.getMessage());
 			return Message.builder().message("Message PlatForm Exception ").status("F").build();
 		}
 		
@@ -351,7 +401,7 @@ public class ApiController {
 		//
 		try {
 			//
-			File file = new File("C:/ai/data0/" + prefix + "_" + mac + ".log");
+			File file = new File(this.filePath + prefix + "_" + mac + ".log");
 
 			for (String v : text) {
 				//
