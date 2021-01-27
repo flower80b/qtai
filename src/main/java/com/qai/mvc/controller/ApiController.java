@@ -96,7 +96,7 @@ public class ApiController {
 	public ResponseEntity<Message> signUp(@RequestBody UserSignUp entity, HttpServletRequest request) {
 		//
 		// init
-		Message message = null;
+		Message responseBody = null;
 		HttpHeaders headers= new HttpHeaders();
         headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
         
@@ -105,23 +105,23 @@ public class ApiController {
 		// f, s
         if("F".equals(tf.getStatus())) {
 			//
-			message = Message.builder().message("Message PlatForm API 호출 실패되었습니다.").status("F").build();
-	        return new ResponseEntity<>(message, headers, HttpStatus.OK);
+			responseBody = Message.builder().message("Message PlatForm API 호출 실패되었습니다.").status("F").build();
+	        return new ResponseEntity<>(responseBody, headers, HttpStatus.OK);
 		}
 		
 		// 1. make log file
 		boolean rtn = this.makeLogFile(entity.getLog_text(), "P1", entity.getMacAddress());
 		if(!rtn) {
 			//
-			message = Message.builder().message("Log File 생성 실패되었습니다.").status("F").build();
-	        return new ResponseEntity<>(message, headers, HttpStatus.OK);
+			responseBody = Message.builder().message("Log File 생성 실패되었습니다.").status("F").build();
+	        return new ResponseEntity<>(responseBody, headers, HttpStatus.OK);
 		}
 		
 		// 2. insert DB
 		entity.setIp(StringUtil.getIp(request));
 		apiDao.insertUser(entity);
-		message = Message.builder().message("가입이 완료되었습니다.").status("S").build();
-		return new ResponseEntity<>(message, headers, HttpStatus.OK);
+		responseBody = Message.builder().message("가입이 완료되었습니다.").status("S").build();
+		return new ResponseEntity<>(responseBody, headers, HttpStatus.OK);
 		
 	}
 	
@@ -131,17 +131,17 @@ public class ApiController {
 		//
 		List<Object> list = apiDao.findId(entity);
 		
-		Message message = null;
+		Message responseBody = null;
 		if(list.isEmpty()) {
 			//
-			message = Message.builder().message("사용할 수 있는 ID입니다.").build();
+			responseBody = Message.builder().message("사용할 수 있는 ID입니다.").status("S").build();
 		}else {
 			//
-			message = Message.builder().message("사용할 수 없는 ID입니다.").build();
+			responseBody = Message.builder().message("사용할 수 없는 ID입니다.").status("F").build();
 		}
 		HttpHeaders headers= new HttpHeaders();
         headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
-        return new ResponseEntity<>(message, headers, HttpStatus.OK);
+        return new ResponseEntity<>(responseBody, headers, HttpStatus.OK);
 	}
 	
 	@PostMapping("/user/login")
@@ -152,10 +152,10 @@ public class ApiController {
 		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
 		
 		// 0. 로그인 체크 ==================================================================
-		Message message = this.loginDBCheck(entity);
-		if(!"S".equals(message.getStatus())) {
+		Message responseBody = this.loginDBCheck(entity);
+		if(!"S".equals(responseBody.getStatus())) {
 			//
-			return new ResponseEntity<>(message, headers, HttpStatus.OK);
+			return new ResponseEntity<>(responseBody, headers, HttpStatus.OK);
 		}
 		
 		// 1. call API Message Platform ========================================================================================
@@ -164,11 +164,6 @@ public class ApiController {
 		// F, N, S
 		if(!"S".equals(tf.getStatus())) {
 			//
-//			if("N".equals(tf) || "F".equals(tf)) {
-//				message = tf;
-//			}else {
-//				message = Message.builder().message("Message PlatForm API 호출 실패되었습니다.").status("F").build();
-//			}
 			return new ResponseEntity<>(tf, headers, HttpStatus.OK);
 		}
 		
@@ -177,11 +172,11 @@ public class ApiController {
 		// log fail
 		if(!rtn) {
 			//
-			message = Message.builder().message("Log File 생성 실패 되었습니다.").status("F").build();
-	        return new ResponseEntity<>(message, headers, HttpStatus.OK);
+			responseBody = Message.builder().message("Log File 생성 실패 되었습니다.").status("F").build();
+	        return new ResponseEntity<>(responseBody, headers, HttpStatus.OK);
 		}
 		
-		return new ResponseEntity<>(message, headers, HttpStatus.OK);
+		return new ResponseEntity<>(responseBody, headers, HttpStatus.OK);
 	}
 	
 	@PostMapping("/user/auth")
@@ -191,7 +186,7 @@ public class ApiController {
 		HttpHeaders headers= new HttpHeaders();
 		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
 		
-		Message message = Message.builder().message("로그인 성공.").status("S").build();
+		Message responseBody = Message.builder().message("로그인 성공.").status("S").build();
 		
 		// 0. auth 체크 ==================================================================
 		if(!"dhsruf".equals(entity.getAuth()) ) {
@@ -202,12 +197,12 @@ public class ApiController {
 		
 		// 1. call API Message Platform ========================================================================================
 		//authFiltering
-		Message tf = this.callMessagePlatform("http://192.168.0.7:9002/authFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
+		Message responseAPI = this.callMessagePlatform("http://192.168.0.7:9002/authFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
 		
 		// F, N, S
-		if(!"S".equals(tf.getStatus())) {
+		if(!"S".equals(responseAPI.getStatus())) {
 			//
-			return new ResponseEntity<>(tf, headers, HttpStatus.OK);
+			return new ResponseEntity<>(responseAPI, headers, HttpStatus.OK);
 		}
 		
 		// 2. make file ================================================================
@@ -215,11 +210,12 @@ public class ApiController {
 		// log fail
 		if(!rtn) {
 			//
-			message = Message.builder().message("Log File 생성 실패 되었습니다.").status("F").build();
-	        return new ResponseEntity<>(message, headers, HttpStatus.OK);
+			responseBody = Message.builder().message("Log File 생성 실패 되었습니다.").status("F").build();
+	        return new ResponseEntity<>(responseBody, headers, HttpStatus.OK);
 		}
 		
-		return new ResponseEntity<>(message, headers, HttpStatus.OK);
+		responseBody = Message.builder().message("로그인 성공.").status("S").build();
+		return new ResponseEntity<>(responseBody, headers, HttpStatus.OK);
 	}
 	
 	
