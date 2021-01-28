@@ -49,6 +49,7 @@ import com.qai.mvc.entity.UserLogin;
 import com.qai.mvc.entity.UserMacAddress;
 import com.qai.mvc.entity.UserSignUp;
 import com.qai.mvc.session.UserInfo;
+import com.qai.mvc.share.ShareVO;
 import com.qai.mvc.util.StringUtil;
 
 import lombok.extern.slf4j.Slf4j;
@@ -61,16 +62,6 @@ import lombok.extern.slf4j.Slf4j;
 //@CrossOrigin("*")
 public class ApiController {
 	//
-	 
-	@Value("$custom.path")
-	private String data0;
-	
-	private final String path = "src/main/resources/";
-	
-	private final String domain = "http://192.168.0.7:9002";
-	
-	private final String filePath = "C:/ai/data0/";
-	
 	@Autowired
 	private ApiDao apiDao;
 	
@@ -109,7 +100,7 @@ public class ApiController {
         headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
         
 		// 0. call Message Platform
-        Message tf = this.callMessagePlatform(this.domain+"/logFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
+        Message tf = this.callMessagePlatform(ShareVO.mpdomain+"/logFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
 		// f, s
         if("F".equals(tf.getStatus())) {
 			//
@@ -167,7 +158,7 @@ public class ApiController {
 		}
 		
 		// 1. call API Message Platform ========================================================================================
-		Message tf = this.callMessagePlatform(this.domain+"/loginLogFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
+		Message tf = this.callMessagePlatform(ShareVO.mpdomain+"/loginLogFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
 		
 		// F, N, S
 		if(!"S".equals(tf.getStatus())) {
@@ -206,7 +197,7 @@ public class ApiController {
 		
 		// 1. call API Message Platform ========================================================================================
 		//authFiltering
-		Message responseAPI = this.callMessagePlatform(this.domain+"/authFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
+		Message responseAPI = this.callMessagePlatform(ShareVO.mpdomain+"/authFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
 		
 		// F, N, S
 		if(!"S".equals(responseAPI.getStatus())) {
@@ -300,7 +291,7 @@ public class ApiController {
 	public void sendMp(@RequestBody UserSignUp entity, HttpServletRequest request) throws Exception {
 		//
 		//callAPI(entity);
-		this.callMessagePlatform(this.domain+"/logFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
+		this.callMessagePlatform(ShareVO.mpdomain+"/logFiltering", entity.getLog_text(), entity.getUser_id(), entity.getUser_pw(), entity.getMacAddress());
 	}
 	
 	private Message callMessagePlatform(String url, String[] text, String id, String pw, String mac) {
@@ -347,23 +338,18 @@ public class ApiController {
 				log.info("Message PlatForm Request Successful !!!!");
 				Message ms = new Gson().fromJson(responseString.getBody(), Message.class);
 				// 로그인시
-				if("http://192.168.0.7:9002/loginLogFiltering".equals(url)) {
+				if(url.equals(ShareVO.mpdomain+"/loginLogFiltering")) {
 					//
 					if("F".equals(ms.getStatus())) {
 						//
-						String a = ms.getMessage().substring(0, 4);
-						int b = (int) (Double.valueOf(a) *100);
-						ms.setMessage("패턴인식 불일치로 로그인실패 입니다. (패턴 인식율 : "+ b +" 점)");
+						
+						ms.setMessage("패턴인식 불일치로 로그인실패 입니다. (패턴 인식율 : "+ String.format("%.2f", Double.valueOf(ms.getMessage()) *100) +" 점)");
 					}else if("N".equals(ms.getStatus())) {
 						//
-						String a = ms.getMessage().substring(0, 4);
-						int b = (int) (Double.valueOf(a) *100);
-						ms.setMessage("패턴인식 확인필요. (패턴 인식율 : "+ b +" 점) \n 개인확인 메시지를 입력하세요.");
+						ms.setMessage("패턴인식 확인필요. (패턴 인식율 : "+ String.format("%.2f", Double.valueOf(ms.getMessage()) *100) +" 점) \n 개인확인 메시지를 입력하세요.");
 					}else {
 						//
-						String a = ms.getMessage().substring(0, 4);
-						int b = (int) (Double.valueOf(a) *100);
-						ms.setMessage("로그인 성공 입니다. (패턴 인식율 : "+ b +" 점)");
+						ms.setMessage("로그인 성공 입니다. (패턴 인식율 : "+ String.format("%.2f", Double.valueOf(ms.getMessage()) *100) +" 점)");
 					}
 					
 //					if("teamtpzoo".equals(id)) {
@@ -374,7 +360,7 @@ public class ApiController {
 //						ms.setStatus("N");
 //					}
 					
-				}else if("http://192.168.0.7:9002/authFiltering".equals(url)) {
+				}else if(url.equals(ShareVO.mpdomain+"/authFiltering")) {
 					// 권한체크시
 					ms.setMessage("로그인 성공.");
 					ms.setStatus("S");
@@ -390,9 +376,9 @@ public class ApiController {
 			}
 		}catch(Exception e) {
 			//
-			e.printStackTrace();
-			//log.error("Exception !!!!! "+e.getMessage());
-			return Message.builder().message("Message PlatForm Exception ").status("F").build();
+			//e.printStackTrace();
+			log.error("Exception !!!!! "+e.getMessage());
+			return Message.builder().message("Message PlatForm Exception !! "+e.getMessage()).status("F").build();
 		}
 		
 	}
@@ -401,7 +387,7 @@ public class ApiController {
 		//
 		try {
 			//
-			File file = new File(this.filePath + prefix + "_" + mac + ".log");
+			File file = new File(ShareVO.filePath + prefix + "_" + mac + ".log");
 
 			for (String v : text) {
 				//
