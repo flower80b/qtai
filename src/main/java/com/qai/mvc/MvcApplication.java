@@ -9,8 +9,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @MapperScan(basePackageClasses = MvcApplication.class)
 @SpringBootApplication
 public class MvcApplication {
-	//
-	//커밋되돌리기
+
 	public static void main(String[] args) {
 		SpringApplication.run(MvcApplication.class, args);
 	}
