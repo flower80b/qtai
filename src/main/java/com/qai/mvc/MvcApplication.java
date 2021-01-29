@@ -9,7 +9,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @MapperScan(basePackageClasses = MvcApplication.class)
 @SpringBootApplication
 public class MvcApplication {
-	///12
+	//
 	public static void main(String[] args) {
 		SpringApplication.run(MvcApplication.class, args);
 	}
